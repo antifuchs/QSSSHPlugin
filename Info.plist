@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>QSSSHPlugin</string>
+	<key>CFBundleIdentifier</key>
+	<string>net.boinkor.qs.sshplugin</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>SSH Plugin</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleVersion</key>
+	<string>22</string>
+	<key>NSPrincipalClass</key>
+	<string>QSSSHPlugin</string>
+	<key>QSActions</key>
+	<dict>
+		<key>QSSSHOpenAction</key>
+		<dict>
+			<key>actionClass</key>
+			<string>QSSSHActionProvider</string>
+			<key>actionSelector</key>
+			<string>openConnection:</string>
+			<key>commandFormat</key>
+			<string>Open SSH Connection to %@</string>
+			<key>directTypes</key>
+			<array>
+				<string>QSSSHHostIDType</string>
+			</array>
+			<key>icon</key>
+			<string>com.apple.Terminal</string>
+			<key>name</key>
+			<string>SSH To</string>
+			<key>rankModification</key>
+			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>QSPlugIn</key>
+	<dict>
+		<key>author</key>
+		<string>Andreas Fuchs</string>
+		<key>categories</key>
+		<array>
+			<string>Internet</string>
+		</array>
+		<key>description</key>
+		<string>Access known and configured SSH hosts</string>
+		<key>icon</key>
+		<string>com.apple.Terminal</string>
+		<key>qsversion</key>
+		<string>29CC</string>
+		<key>relatedBundles</key>
+		<array/>
+	</dict>
+	<key>QSPresetAdditions</key>
+	<array>
+		<dict>
+			<key>ID</key>
+			<string>QSPresetQSSSHPlugin</string>
+			<key>name</key>
+			<string>SSH hosts</string>
+			<key>source</key>
+			<string>QSSSHPlugin</string>
+		</dict>
+	</array>
+	<key>QSRegistration</key>
+	<dict>
+		<key>QSBundleChildHandlers</key>
+		<dict>
+			<key>com.apple.Terminal</key>
+			<string>QSSSHPluginSource</string>
+		</dict>
+		<key>QSObjectHandlers</key>
+		<dict>
+			<key>QSSSHHostIDType</key>
+			<string>QSSSHPluginSource</string>
+			<key>QSSSHPluginType</key>
+			<string>QSSSHPluginSource</string>
+		</dict>
+		<key>QSObjectSources</key>
+		<dict>
+			<key>QSSSHPluginSource</key>
+			<string>QSSSHPluginSource</string>
+		</dict>
+	</dict>
+	<key>QSRequirements</key>
+	<dict>
+		<key>bundlesTemplate</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>com.apple.Terminal</string>
+				<key>name</key>
+				<string>Terminal</string>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>

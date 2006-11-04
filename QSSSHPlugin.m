@@ -31,7 +31,7 @@
 }
 
 + (QSObject *)newHostEntry:(NSString *)name {
-	NSLog(@"returning one object %@!\n", name);
+	// NSLog(@"returning one object %@!\n", name);
 	
 	QSObject *obj = [QSObject objectWithName:[NSString stringWithString:name]];
 	[obj setObject:[@"ssh://" stringByAppendingString:name] forType:QSURLType];
@@ -48,7 +48,6 @@
     NSMutableArray *objects=[NSMutableArray arrayWithCapacity:1];
     QSObject *newObject;
 	
-	NSLog(@"entry is %@\n", path);
 
 	NSString *contents = [NSString stringWithContentsOfFile:path];
 	NSScanner *lineScanner = [NSScanner scannerWithString:contents];
@@ -63,7 +62,7 @@
 			if (![objects containsObject:newHostObject])
 				[objects addObject:newHostObject];
 		} else {
-			NSLog(@"huh? entry didn't match? host: %@", host);
+			NSLog(@"huh? known_hosts entry didn't match? host: %@", host);
 		}
 	}
     

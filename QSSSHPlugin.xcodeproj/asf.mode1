@@ -190,6 +190,46 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
+				<string>56EB64940AFCF35100B1A901</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>QSSSHPlugin.h</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>56EB64950AFCF35100B1A901</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>QSSSHPlugin.h</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>560133920AFD1340003D839F</string>
+						<key>history</key>
+						<array>
+							<string>56EB657B0AFD12E800B1A901</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {744, 929}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>147 25 744 970 0 0 1680 1028 </string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
 				<string>56EB654D0AFD0E6200B1A901</string>
 				<key>PBXProjectModuleLabel</key>
 				<string>QSSSHPlugin.m</string>
@@ -204,10 +244,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>56EB65690AFD10D100B1A901</string>
+						<string>560133930AFD1340003D839F</string>
 						<key>history</key>
 						<array>
-							<string>56EB65430AFD0E3500B1A901</string>
+							<string>56EB657A0AFD12E800B1A901</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -230,24 +270,24 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>56EB64940AFCF35100B1A901</string>
+				<string>56EB65770AFD12E800B1A901</string>
 				<key>PBXProjectModuleLabel</key>
-				<string>QSSSHPlugin.h</string>
+				<string>Info.plist</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
 				<dict>
 					<key>Split0</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
-						<string>56EB64950AFCF35100B1A901</string>
+						<string>56EB65780AFD12E800B1A901</string>
 						<key>PBXProjectModuleLabel</key>
-						<string>QSSSHPlugin.h</string>
+						<string>Info.plist</string>
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>56EB656A0AFD10D100B1A901</string>
+						<string>560133940AFD1340003D839F</string>
 						<key>history</key>
 						<array>
-							<string>56EB64E10AFCFEE500B1A901</string>
+							<string>56EB65790AFD12E800B1A901</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -263,7 +303,7 @@
 				<key>PBXModuleWindowStatusBarHidden2</key>
 				<false/>
 				<key>RubberWindowFrame</key>
-				<string>147 25 744 970 0 0 1680 1028 </string>
+				<string>762 58 744 970 0 0 1680 1028 </string>
 			</dict>
 		</dict>
 	</array>
@@ -449,9 +489,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>56EB645D0AFCEE5700B1A901</string>
+				<string>560133860AFD1316003D839F</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>56EB645E0AFCEE5700B1A901</string>
+				<string>560133870AFD1316003D839F</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -586,8 +626,9 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>56A51C650AFB3F6F00DBF938</string>
-		<string>56EB64940AFCF35100B1A901</string>
+		<string>56EB65770AFD12E800B1A901</string>
 		<string>56EB654D0AFD0E6200B1A901</string>
+		<string>56EB64940AFCF35100B1A901</string>
 		<string>/Users/asf/Documents/hack/qs/QSSSHPlugin/QSSSHPlugin.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -607,14 +648,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>QSSSHPlugin.m</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -670,7 +709,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>56A51C650AFB3F6F00DBF938</string>
-				<string>56EB648C0AFCF30200B1A901</string>
+				<string>5601338B0AFD1316003D839F</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

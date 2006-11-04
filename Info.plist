@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleVersion</key>
-	<string>2E</string>
+	<string>3F</string>
 	<key>NSPrincipalClass</key>
 	<string>QSSSHPlugin</string>
 	<key>QSActions</key>
@@ -57,22 +57,89 @@
 		<key>relatedBundles</key>
 		<array/>
 	</dict>
+	<key>QSPresetAdditions</key>
+	<dict>
+		<key>0</key>
+		<dict>
+			<key>ID</key>
+			<string>QSPresetSSHHosts</string>
+			<key>children</key>
+			<array>
+				<dict>
+					<key>ID</key>
+					<string>QSPresetSSHHostsUserKnownHosts</string>
+					<key>enabled</key>
+					<true/>
+					<key>icon</key>
+					<string>com.apple.Terminal</string>
+					<key>name</key>
+					<string>User known_hosts</string>
+					<key>requiresSettingsPath</key>
+					<true/>
+					<key>settings</key>
+					<dict>
+						<key>parser</key>
+						<string>QSSSHKnownHostsParser</string>
+						<key>path</key>
+						<string>~/.ssh/known_hosts</string>
+						<key>skipItem</key>
+						<true/>
+					</dict>
+					<key>source</key>
+					<string>QSFileSystemObjectSource</string>
+				</dict>
+				<dict>
+					<key>ID</key>
+					<string>QSPresetSSHHostsSystemKnownHosts</string>
+					<key>enabled</key>
+					<true/>
+					<key>icon</key>
+					<string>com.apple.Terminal</string>
+					<key>name</key>
+					<string>System-wide ssh_known_hosts</string>
+					<key>requiresSettingsPath</key>
+					<true/>
+					<key>settings</key>
+					<dict>
+						<key>parser</key>
+						<string>QSSSHKnownHostsParser</string>
+						<key>path</key>
+						<string>/etc/ssh_known_hosts</string>
+						<key>skipItem</key>
+						<true/>
+					</dict>
+					<key>source</key>
+					<string>QSFileSystemObjectSource</string>
+				</dict>
+			</array>
+			<key>icon</key>
+			<string>com.apple.Terminal</string>
+			<key>name</key>
+			<string>SSH Hosts</string>
+			<key>requiresBundle</key>
+			<string>com.apple.Terminal</string>
+			<key>requiresSettingsPath</key>
+			<true/>
+			<key>source</key>
+			<string>QSGroupObjectSource</string>
+		</dict>
+	</dict>
 	<key>QSRegistration</key>
 	<dict>
 		<key>QSBundleChildHandlers</key>
 		<dict>
 			<key>com.apple.Terminal</key>
-			<string>QSSSHPluginSource</string>
+			<string>QSSSHPlugin</string>
+		</dict>
+		<key>QSFSParsers</key>
+		<dict>
+			<key>QSSSHKnownHostsParser</key>
+			<string>QSSSHKnownHostsParser</string>
 		</dict>
 		<key>QSObjectHandlers</key>
 		<dict>
 			<key>QSSSHHostIDType</key>
-			<string>QSSSHPluginSource</string>
-		</dict>
-		<key>QSObjectSources</key>
-		<dict>
-			<key>QSSSHPluginSource</key>
-			<string>QSSSHPluginSource</string>
+			<string>QSSSHPlugin</string>
 		</dict>
 	</dict>
 	<key>QSRequirements</key>

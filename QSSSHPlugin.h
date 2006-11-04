@@ -13,6 +13,11 @@
 }
 @end
 
+@interface QSSSHKnownHostsParser : QSParser
+{
+}
+@end
+
 @interface QSSSHActionProvider : QSActionProvider
 {
 }

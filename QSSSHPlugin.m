@@ -7,6 +7,7 @@
 //
 
 #import "QSSSHPlugin.h"
+#import <Foundation/NSScanner.h>
 
 #define QSSSHHostIDType @"QSSSHHostIDType"
 
@@ -22,37 +23,55 @@
 }
 
 - (NSString *)identifierForObject:(id <QSObject>)object{
-    return [@"[SSH Host]:"stringByAppendingString:[object objectForType:QSSSHHostIDType]];
-}
-
-+ (QSObject *)newHostEntry:(NSString *)name {
-	NSLog(@"returning one object %s!\n", name);
-	
-	QSObject *obj = [QSObject objectWithName:name];
-	[obj setObject:[@"ssh://" stringByAppendingString:[name stringByAppendingString: @"/"]] forType:QSURLType];
-	[obj setPrimaryType:QSSSHHostIDType];
-	
-	return obj;
-}
-
-- (NSArray *) objectsForEntry:(NSDictionary *)theEntry{
-    NSMutableArray *objects=[NSMutableArray arrayWithCapacity:1];
-    QSObject *newObject;
-
-	[objects addObject: [QSSSHPlugin newHostEntry:@"boojum.boinkor.net"]];
-	[objects addObject: [QSSSHPlugin newHostEntry:@"p.sil.at"]];
-	[objects addObject: [QSSSHPlugin newHostEntry:@"common-lisp.net"]];
-    
-    return objects;
-}
-
-- (BOOL)loadChildrenForObject:(QSObject *)object{
-		[object setChildren:[self objectsForEntry:nil]];
-		return YES;   	
+    return [@"[SSH Host]:"stringByAppendingString:[object objectForType:QSURLType]];
 }
 
 - (void)setQuickIconForObject:(QSObject *)object{
     [object setIcon:[QSResourceManager imageNamed:@"com.apple.Terminal"]];
+}
+
++ (QSObject *)newHostEntry:(NSString *)name {
+	NSLog(@"returning one object %@!\n", name);
+	
+	QSObject *obj = [QSObject objectWithName:[NSString stringWithString:name]];
+	[obj setObject:[@"ssh://" stringByAppendingString:name] forType:QSURLType];
+	[obj setPrimaryType:QSSSHHostIDType];
+	
+	return obj;
+}
+@end
+
+@implementation QSSSHKnownHostsParser
+
+
+- (NSArray *) objectsFromPath:(NSString *)path withSettings:(NSDictionary *)settings{
+    NSMutableArray *objects=[NSMutableArray arrayWithCapacity:1];
+    QSObject *newObject;
+	
+	NSLog(@"entry is %@\n", path);
+
+	NSString *contents = [NSString stringWithContentsOfFile:path];
+	NSScanner *lineScanner = [NSScanner scannerWithString:contents];
+	NSCharacterSet *newline = [NSCharacterSet characterSetWithCharactersInString:@"\n"];
+	NSCharacterSet *hostnameSeparator = [NSCharacterSet characterSetWithCharactersInString:@"\t ,"];
+	NSString *host, *ignored;
+	
+	while(![lineScanner isAtEnd]) {
+		if ([lineScanner scanUpToCharactersFromSet:hostnameSeparator intoString:&host] &&
+			[lineScanner scanUpToCharactersFromSet:newline intoString:&ignored]) {
+			QSObject *newHostObject = [QSSSHPlugin newHostEntry:host];
+			if (![objects containsObject:newHostObject])
+				[objects addObject:newHostObject];
+		} else {
+			NSLog(@"huh? entry didn't match? host: %@", host);
+		}
+	}
+    
+    return objects;
+}
+
+- (BOOL)isValidParserForPath:(NSString *)path{
+	return TRUE;
 }
 
 @end

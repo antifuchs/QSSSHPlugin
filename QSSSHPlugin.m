@@ -13,7 +13,7 @@
 @implementation QSSSHPlugin
 
 - (BOOL)indexIsValidFromDate:(NSDate *)indexDate forEntry:(NSDictionary *)theEntry{
-    NSDate *modDate=[[[NSFileManager defaultManager] fileAttributesAtPath:[@"~/.ssh/config" stringByStandardizingPath] traverseLink:YES]fileModificationDate];
+    NSDate *modDate=[[[NSFileManager defaultManager] fileAttributesAtPath:[@"~/.ssh/known_hosts" stringByStandardizingPath] traverseLink:YES]fileModificationDate];
     return [modDate compare:indexDate]==NSOrderedAscending;
 }
 
@@ -25,18 +25,24 @@
     return [@"[SSH Host]:"stringByAppendingString:[object objectForType:QSSSHHostIDType]];
 }
 
++ (QSObject *)newHostEntry:(NSString *)name {
+	NSLog(@"returning one object %s!\n", name);
+	
+	QSObject *obj = [QSObject objectWithName:name];
+	[obj setObject:[@"ssh://" stringByAppendingString:[name stringByAppendingString: @"/"]] forType:QSURLType];
+	[obj setPrimaryType:QSSSHHostIDType];
+	
+	return obj;
+}
+
 - (NSArray *) objectsForEntry:(NSDictionary *)theEntry{
     NSMutableArray *objects=[NSMutableArray arrayWithCapacity:1];
     QSObject *newObject;
 
-    newObject=[QSObject objectWithName:@"boojum.boinkor.net"];
-
-    [newObject setObject:@"ssh://boojum.boinkor.net/" forType:QSURLType];
-	[newObject setPrimaryType:QSSSHHostIDType];
-    [objects addObject:newObject];
+	[objects addObject: [QSSSHPlugin newHostEntry:@"boojum.boinkor.net"]];
+	[objects addObject: [QSSSHPlugin newHostEntry:@"p.sil.at"]];
+	[objects addObject: [QSSSHPlugin newHostEntry:@"common-lisp.net"]];
     
-	NSLog(@"returning one object!\n"); 
-	
     return objects;
 }
 

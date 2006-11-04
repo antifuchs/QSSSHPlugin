@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleVersion</key>
-	<string>22</string>
+	<string>2E</string>
 	<key>NSPrincipalClass</key>
 	<string>QSSSHPlugin</string>
 	<key>QSActions</key>
@@ -57,17 +57,6 @@
 		<key>relatedBundles</key>
 		<array/>
 	</dict>
-	<key>QSPresetAdditions</key>
-	<array>
-		<dict>
-			<key>ID</key>
-			<string>QSPresetQSSSHPlugin</string>
-			<key>name</key>
-			<string>SSH hosts</string>
-			<key>source</key>
-			<string>QSSSHPlugin</string>
-		</dict>
-	</array>
 	<key>QSRegistration</key>
 	<dict>
 		<key>QSBundleChildHandlers</key>
@@ -78,8 +67,6 @@
 		<key>QSObjectHandlers</key>
 		<dict>
 			<key>QSSSHHostIDType</key>
-			<string>QSSSHPluginSource</string>
-			<key>QSSSHPluginType</key>
 			<string>QSSSHPluginSource</string>
 		</dict>
 		<key>QSObjectSources</key>

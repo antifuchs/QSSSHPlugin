@@ -18,6 +18,11 @@
 }
 @end
 
+@interface QSSSHConfigParser : QSParser
+{
+}
+@end
+
 @interface QSSSHActionProvider : QSActionProvider
 {
 }

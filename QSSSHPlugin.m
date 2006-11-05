@@ -31,7 +31,7 @@
 }
 
 + (QSObject *)newHostEntry:(NSString *)name {
-	// NSLog(@"returning one object %@!\n", name);
+	NSLog(@"returning one object %@!\n", name);
 	
 	QSObject *obj = [QSObject objectWithName:[NSString stringWithString:name]];
 	[obj setObject:[@"ssh://" stringByAppendingString:name] forType:QSURLType];
@@ -49,7 +49,12 @@
     QSObject *newObject;
 	
 
-	NSString *contents = [NSString stringWithContentsOfFile:path];
+	NSError *error;
+	NSString *contents = [NSString stringWithContentsOfFile:path encoding:NSISOLatin1StringEncoding error:&error];
+	if (error != nil) {
+		NSLog (@"Couldn't read contents of %@: %@\n", path, error);
+		return objects;
+	}
 	NSScanner *lineScanner = [NSScanner scannerWithString:contents];
 	NSCharacterSet *newline = [NSCharacterSet characterSetWithCharactersInString:@"\n"];
 	NSCharacterSet *hostnameSeparator = [NSCharacterSet characterSetWithCharactersInString:@"\t ,"];
@@ -62,7 +67,8 @@
 			if (![objects containsObject:newHostObject])
 				[objects addObject:newHostObject];
 		} else {
-			NSLog(@"huh? known_hosts entry didn't match? host: %@", host);
+			NSLog(@"huh? known_hosts entry didn't match? host: %@; ignoring line...", host);
+			[lineScanner scanUpToCharactersFromSet:newline intoString:&ignored];
 		}
 	}
     
@@ -74,6 +80,52 @@
 }
 
 @end
+
+@implementation QSSSHConfigParser
+
+- (NSArray *) objectsFromPath:(NSString *)path withSettings:(NSDictionary *)settings{
+    NSMutableArray *objects=[NSMutableArray arrayWithCapacity:0];
+    QSObject *newObject;
+	
+	NSError *error;
+	NSString *contents = [NSString stringWithContentsOfFile:path encoding:NSISOLatin1StringEncoding error:&error];
+	if (error != nil) {
+		NSLog (@"Couldn't read contents of %@: %@\n", path, error);
+		return objects;
+	}
+	NSScanner *lineScanner = [NSScanner scannerWithString:contents];
+	NSCharacterSet *newline = [NSCharacterSet characterSetWithCharactersInString:@"\n"];
+	NSCharacterSet *hostnameSeparator = [NSCharacterSet characterSetWithCharactersInString:@"\t ,"];
+	NSCharacterSet *wildcards = [NSCharacterSet characterSetWithCharactersInString:@"*?"];
+	NSString *firstWord, *host, *ignored;
+	
+	while(![lineScanner isAtEnd]) {
+		if ([lineScanner scanUpToCharactersFromSet:[NSCharacterSet whitespaceCharacterSet] intoString:&firstWord] &&
+			[firstWord compare:@"Host"] == NSOrderedSame &&
+			[lineScanner scanUpToCharactersFromSet:newline intoString:&host]) {
+			/* ssh config entries can be general configuration entries (using wildcards) or host alias 
+			   entries with optional customization. We want the latter. */
+			if ([host rangeOfCharacterFromSet:wildcards].location == NSNotFound) {
+				QSObject *newHostObject = [QSSSHPlugin newHostEntry:host];
+				if (![objects containsObject:newHostObject]) {
+					[objects addObject:newHostObject];
+				}
+			}
+		} else {
+			// ignore the line
+			[lineScanner scanUpToCharactersFromSet:newline intoString:&ignored];
+		}
+	}
+    
+    return objects;
+}
+
+- (BOOL)isValidParserForPath:(NSString *)path{
+	return TRUE;
+}
+
+@end
+
 
 #define kQSSSHOpenAction @"QSSSHOpenAction"
 

@@ -15,7 +15,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleVersion</key>
-	<string>4C</string>
+	<string>54</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2006, Andreas Fuchs &lt;asf@boinkor.net&gt;. MIT-Licenced</string>
 	<key>NSPrincipalClass</key>
 	<string>QSSSHPlugin</string>
 	<key>QSActions</key>
@@ -32,10 +34,12 @@
 			<array>
 				<string>QSSSHHostIDType</string>
 			</array>
+			<key>displayResult</key>
+			<true/>
 			<key>icon</key>
 			<string>com.apple.Terminal</string>
 			<key>name</key>
-			<string>SSH To</string>
+			<string>Open SSH Connection</string>
 			<key>rankModification</key>
 			<integer>3</integer>
 		</dict>
@@ -50,7 +54,13 @@
 			<string>System</string>
 		</array>
 		<key>description</key>
-		<string>Access known and configured SSH hosts</string>
+		<string>Access known and configured SSH hosts.</string>
+		<key>extendedDescription</key>
+		<string>SSH Plugin.
+&lt;h3&gt;What&lt;/h3&gt;
+&lt;p&gt;This plugin indexes your SSH known_hosts file and all non-wildcard hosts you have in your SSH configuration.&lt;/p&gt;
+&lt;h3&gt;Usage&lt;/h3&gt;
+&lt;p&gt;Type the name of a host (leave out the period character, as that activates Text input mode), then use the Open URL action.&lt;/p&gt;</string>
 		<key>icon</key>
 		<string>com.apple.Terminal</string>
 		<key>qsversion</key>
@@ -175,10 +185,10 @@
 	</dict>
 	<key>QSRegistration</key>
 	<dict>
-		<key>QSBundleChildHandlers</key>
+		<key>QSActionProviders</key>
 		<dict>
-			<key>com.apple.Terminal</key>
-			<string>QSSSHPlugin</string>
+			<key>QSSSHActionProvider</key>
+			<string>QSSSHActionProvider</string>
 		</dict>
 		<key>QSFSParsers</key>
 		<dict>
@@ -190,7 +200,7 @@
 		<key>QSObjectHandlers</key>
 		<dict>
 			<key>QSSSHHostIDType</key>
-			<string>QSSSHPlugin</string>
+			<string>QSSSHActionProvider</string>
 		</dict>
 	</dict>
 	<key>QSRequirements</key>

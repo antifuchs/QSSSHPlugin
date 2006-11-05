@@ -18,23 +18,11 @@
     return [modDate compare:indexDate]==NSOrderedAscending;
 }
 
-- (NSImage *) iconForEntry:(NSDictionary *)dict{
-    return [QSResourceManager imageNamed:@"com.apple.Terminal"];
-}
-
-- (NSString *)identifierForObject:(id <QSObject>)object{
-    return [@"[SSH Host]:"stringByAppendingString:[object objectForType:QSURLType]];
-}
-
-- (void)setQuickIconForObject:(QSObject *)object{
-    [object setIcon:[QSResourceManager imageNamed:@"com.apple.Terminal"]];
-}
-
 + (QSObject *)newHostEntry:(NSString *)name {
 	NSLog(@"returning one object %@!\n", name);
 	
 	QSObject *obj = [QSObject objectWithName:[NSString stringWithString:name]];
-	[obj setObject:[@"ssh://" stringByAppendingString:name] forType:QSURLType];
+	[obj setObject:name forType:QSSSHHostIDType];
 	[obj setPrimaryType:QSSSHHostIDType];
 	
 	return obj;
@@ -132,14 +120,26 @@
 @implementation QSSSHActionProvider
 
 - (NSArray *)validActionsForDirectObject:(QSObject *)dObject indirectObject:(QSObject *)iObject{
-    return [NSArray arrayWithObject:kQSSSHPluginType];
+    return [NSArray arrayWithObjects:kQSSSHOpenAction, nil];
 }
 
 - (QSObject *) openConnection:(QSObject *)dObject{
     
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[dObject objectForType:QSURLType]]];
-    
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"ssh://%@/", 
+		[dObject objectForType:QSSSHHostIDType]]]];
     return nil;
+}
+
+- (NSImage *) iconForEntry:(NSDictionary *)dict{
+    return [QSResourceManager imageNamed:@"com.apple.Terminal"];
+}
+
+- (NSString *)identifierForObject:(id <QSObject>)object{
+    return [@"[SSH Host]:"stringByAppendingString:[object objectForType:QSSSHHostIDType]];
+}
+
+- (void)setQuickIconForObject:(QSObject *)object{
+    [object setIcon:[QSResourceManager imageNamed:@"com.apple.Terminal"]];
 }
 
 @end

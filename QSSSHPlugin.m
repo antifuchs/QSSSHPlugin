@@ -19,8 +19,6 @@
 }
 
 + (QSObject *)newHostEntry:(NSString *)name {
-	NSLog(@"returning one object %@!\n", name);
-	
 	QSObject *obj = [QSObject objectWithName:[NSString stringWithString:name]];
 	[obj setObject:name forType:QSSSHHostIDType];
 	[obj setPrimaryType:QSSSHHostIDType];
@@ -116,17 +114,38 @@
 
 
 #define kQSSSHOpenAction @"QSSSHOpenAction"
+#define kQSSSHOpenAsUserAction @"QSSSHOpenAsUserAction"
 
 @implementation QSSSHActionProvider
 
 - (NSArray *)validActionsForDirectObject:(QSObject *)dObject indirectObject:(QSObject *)iObject{
-    return [NSArray arrayWithObjects:kQSSSHOpenAction, nil];
+    return [NSArray arrayWithObjects:kQSSSHOpenAction, kQSSSHOpenAsUserAction, nil];
+}
+
+- (NSArray *)validIndirectObjectsForAction:(NSString *)action directObject:(QSObject *)dObject{
+	if ([action compare:kQSSSHOpenAsUserAction])
+		return [NSArray arrayWithObject:NSStringPboardType];
+	else
+		return [NSArray arrayWithObjects:nil];
 }
 
 - (QSObject *) openConnection:(QSObject *)dObject{
+	NSString *hostStr = [dObject objectForType:QSSSHHostIDType];
+	if (hostStr == NULL)
+		hostStr = [dObject objectForType:NSStringPboardType];
     
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"ssh://%@/", 
-		[dObject objectForType:QSSSHHostIDType]]]];
+    [[NSWorkspace sharedWorkspace]
+		openURL:[NSURL URLWithString:[NSString stringWithFormat:@"ssh://%@/", hostStr]]];
+    return nil;
+}
+
+- (QSObject *) openConnection:(QSObject *)dObject asUser:(QSObject*)iObject{
+	NSString *hostStr = [dObject objectForType:QSSSHHostIDType];
+	if (hostStr == NULL)
+		hostStr = [dObject objectForType:NSStringPboardType];
+		
+    [[NSWorkspace sharedWorkspace] 
+		openURL:[NSURL URLWithString:[NSString stringWithFormat:@"ssh://%@@%@/", iObject, hostStr]]];
     return nil;
 }
 

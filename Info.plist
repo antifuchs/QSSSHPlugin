@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>QSSSHPlugin</string>
+	<string>SSH Plugin</string>
 	<key>CFBundleIdentifier</key>
 	<string>net.boinkor.qs.sshplugin</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleVersion</key>
-	<string>54</string>
+	<string>71</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2006, Andreas Fuchs &lt;asf@boinkor.net&gt;. MIT-Licenced</string>
 	<key>NSPrincipalClass</key>
@@ -33,6 +33,7 @@
 			<key>directTypes</key>
 			<array>
 				<string>QSSSHHostIDType</string>
+				<string>NSStringPboardType</string>
 			</array>
 			<key>displayResult</key>
 			<true/>
@@ -41,7 +42,29 @@
 			<key>name</key>
 			<string>Open SSH Connection</string>
 			<key>rankModification</key>
-			<integer>3</integer>
+			<real>0.5</real>
+		</dict>
+		<key>QSSSHOpenAsUserAction</key>
+		<dict>
+			<key>actionClass</key>
+			<string>QSSSHActionProvider</string>
+			<key>actionSelector</key>
+			<string>openConnection:asUser:</string>
+			<key>commandFormat</key>
+			<string>SSH to %@ as User %@</string>
+			<key>directTypes</key>
+			<array>
+				<string>QSSSHHostIDType</string>
+				<string>NSStringPboardType</string>
+			</array>
+			<key>displayResult</key>
+			<true/>
+			<key>icon</key>
+			<string>com.apple.Terminal</string>
+			<key>name</key>
+			<string>Open SSH Connection as User...</string>
+			<key>rankModification</key>
+			<real>0.40000000000000002</real>
 		</dict>
 	</dict>
 	<key>QSPlugIn</key>
@@ -60,7 +83,8 @@
 &lt;h3&gt;What&lt;/h3&gt;
 &lt;p&gt;This plugin indexes your SSH known_hosts file and all non-wildcard hosts you have in your SSH configuration.&lt;/p&gt;
 &lt;h3&gt;Usage&lt;/h3&gt;
-&lt;p&gt;Type the name of a host (leave out the period character, as that activates Text input mode), then use the Open URL action.&lt;/p&gt;</string>
+&lt;p&gt;Type the name of a host, then use the Open URL action.&lt;/p&gt;
+&lt;p&gt;To connect to a host that isn't in the index, enter the host name in Text mode and choose "Open SSH Connection".&lt;/p&gt;</string>
 		<key>icon</key>
 		<string>com.apple.Terminal</string>
 		<key>qsversion</key>

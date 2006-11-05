@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5618DBE10AFC239600F27831 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D1AC9730486D14A00FE50C9 /* Info.plist */; };
 		56EB65340AFD0DB500B1A901 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56EB65330AFD0DB500B1A901 /* Foundation.framework */; };
 		7F35FF4007F9ACD90056051D /* QSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F35FF3C07F9ACD90056051D /* QSCore.framework */; };
 		7F35FF4207F9ACD90056051D /* QSFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F35FF3E07F9ACD90056051D /* QSFoundation.framework */; };
@@ -25,7 +24,7 @@
 		7FFA8E9C0816CCCA00A858CD /* QSEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSEffects.framework; sourceTree = QSFrameworks; };
 		7FFA8E9D0816CCCA00A858CD /* QSInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSInterface.framework; sourceTree = QSFrameworks; };
 		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1AC9740486D14A00FE50C9 /* QSSSHPlugin.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QSSSHPlugin.qsplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1AC9740486D14A00FE50C9 /* SSH Plugin.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SSH Plugin.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E1EAB045068128A200774DFF /* QSSSHPlugin.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = QSSSHPlugin.m; sourceTree = "<group>"; };
 		E1EAB047068128A800774DFF /* QSSSHPlugin.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = QSSSHPlugin.h; sourceTree = "<group>"; };
@@ -69,7 +68,7 @@
 		1ED78706FE9D4A0611CA0C5A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1AC9740486D14A00FE50C9 /* QSSSHPlugin.qsplugin */,
+				8D1AC9740486D14A00FE50C9 /* SSH Plugin.qsplugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,9 +116,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1AC9600486D14A00FE50C9 /* QSSSHPlugin */ = {
+		8D1AC9600486D14A00FE50C9 /* SSH Plugin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7F6B3EEB085CE8DF000735A8 /* Build configuration list for PBXNativeTarget "QSSSHPlugin" */;
+			buildConfigurationList = 7F6B3EEB085CE8DF000735A8 /* Build configuration list for PBXNativeTarget "SSH Plugin" */;
 			buildPhases = (
 				8D1AC9660486D14A00FE50C9 /* Resources */,
 				8D1AC96A0486D14A00FE50C9 /* Sources */,
@@ -130,10 +129,10 @@
 			);
 			dependencies = (
 			);
-			name = QSSSHPlugin;
+			name = "SSH Plugin";
 			productInstallPath = "$(HOME)/Developer/Palettes";
 			productName = QSSSHPlugin;
-			productReference = 8D1AC9740486D14A00FE50C9 /* QSSSHPlugin.qsplugin */;
+			productReference = 8D1AC9740486D14A00FE50C9 /* SSH Plugin.qsplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -146,7 +145,7 @@
 			mainGroup = 0259C574FE90428111CA0C5A /* QSSSHPlugin */;
 			projectDirPath = "";
 			targets = (
-				8D1AC9600486D14A00FE50C9 /* QSSSHPlugin */,
+				8D1AC9600486D14A00FE50C9 /* SSH Plugin */,
 			);
 		};
 /* End PBXProject section */
@@ -156,7 +155,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5618DBE10AFC239600F27831 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +201,7 @@
 				GCC_PREFIX_HEADER = QSSSHPlugin_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				OTHER_LDFLAGS = "-bundle";
-				PRODUCT_NAME = QSSSHPlugin;
+				PRODUCT_NAME = "SSH Plugin";
 				WRAPPER_EXTENSION = qsplugin;
 				ZERO_LINK = YES;
 			};
@@ -250,7 +248,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7F6B3EEB085CE8DF000735A8 /* Build configuration list for PBXNativeTarget "QSSSHPlugin" */ = {
+		7F6B3EEB085CE8DF000735A8 /* Build configuration list for PBXNativeTarget "SSH Plugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7F6B3EEC085CE8DF000735A8 /* Development */,

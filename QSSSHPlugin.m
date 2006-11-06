@@ -123,10 +123,7 @@
 }
 
 - (NSArray *)validIndirectObjectsForAction:(NSString *)action directObject:(QSObject *)dObject{
-	if ([action compare:kQSSSHOpenAsUserAction])
-		return [NSArray arrayWithObject:NSStringPboardType];
-	else
-		return [NSArray arrayWithObjects:nil];
+	return [NSArray arrayWithObject:[QSObject textProxyObjectWithDefaultValue:@""]];
 }
 
 - (QSObject *) openConnection:(QSObject *)dObject{

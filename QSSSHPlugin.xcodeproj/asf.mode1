@@ -190,7 +190,7 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>56EB654D0AFD0E6200B1A901</string>
+				<string>56FF48A90AFF4C91003AF282</string>
 				<key>PBXProjectModuleLabel</key>
 				<string>QSSSHPlugin.m</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
@@ -198,16 +198,16 @@
 					<key>Split0</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
-						<string>56EB654E0AFD0E6200B1A901</string>
+						<string>56FF48AA0AFF4C91003AF282</string>
 						<key>PBXProjectModuleLabel</key>
 						<string>QSSSHPlugin.m</string>
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>563076490AFE62380019681E</string>
+						<string>56FF48B10AFF50D8003AF282</string>
 						<key>history</key>
 						<array>
-							<string>563073B40AFE03910019681E</string>
+							<string>56FF48A50AFF4C7F003AF282</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -223,7 +223,7 @@
 				<key>PBXModuleWindowStatusBarHidden2</key>
 				<false/>
 				<key>RubberWindowFrame</key>
-				<string>824 60 744 968 0 0 1680 1028 </string>
+				<string>760 60 744 968 0 0 1680 1028 </string>
 			</dict>
 		</dict>
 		<dict>
@@ -244,10 +244,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>5630764A0AFE62380019681E</string>
+						<string>56FF48B20AFF50D8003AF282</string>
 						<key>history</key>
 						<array>
-							<string>563075660AFE55EC0019681E</string>
+							<string>5630764E0AFE87FA0019681E</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -284,10 +284,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>5630764B0AFE62380019681E</string>
+						<string>56FF48B30AFF50D8003AF282</string>
 						<key>history</key>
 						<array>
-							<string>563076170AFE60650019681E</string>
+							<string>563076510AFE87FA0019681E</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -324,10 +324,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>5630764C0AFE62380019681E</string>
+						<string>56FF48B50AFF50D8003AF282</string>
 						<key>history</key>
 						<array>
-							<string>563075690AFE55EC0019681E</string>
+							<string>563076530AFE87FA0019681E</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -420,7 +420,6 @@
 								<string>1ED78706FE9D4A0611CA0C5A</string>
 								<string>2E58F364FFB232C311CA0CBA</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>563075610AFE55EC0019681E</string>
 								<string>1C37FABC05509CD000000102</string>
 								<string>1CC0EA4004350EF90044410B</string>
 							</array>
@@ -533,9 +532,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>563075620AFE55EC0019681E</string>
+				<string>56FF487D0AFF4AD6003AF282</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>563075630AFE55EC0019681E</string>
+				<string>56FF487E0AFF4AD6003AF282</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -669,12 +668,14 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1CD10A99069EF8BA00B06720</string>
+		<string>56FF489F0AFF4C51003AF282</string>
 		<string>56A51C650AFB3F6F00DBF938</string>
 		<string>56EB64940AFCF35100B1A901</string>
 		<string>563075F00AFE5EE70019681E</string>
 		<string>563075640AFE55EC0019681E</string>
-		<string>56EB654D0AFD0E6200B1A901</string>
 		<string>/Users/asf/Documents/hack/qs/QSSSHPlugin/QSSSHPlugin.xcodeproj</string>
+		<string>56FF48A90AFF4C91003AF282</string>
 	</array>
 	<key>WindowString</key>
 	<string>-1271 646 837 403 -1280 26 1280 1024 </string>
@@ -693,14 +694,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>QSSSHPlugin.h</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -717,6 +716,8 @@
 							<string>218pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -756,7 +757,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>56A51C650AFB3F6F00DBF938</string>
-				<string>563075440AFE54970019681E</string>
+				<string>56FF488B0AFF4AF2003AF282</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -798,8 +799,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {316, 183}}</string>
-											<string>{{316, 0}, {378, 183}}</string>
+											<string>{{0, 0}, {315, 192}}</string>
+											<string>{{315, 0}, {379, 192}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -814,8 +815,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {694, 183}}</string>
-											<string>{{0, 183}, {694, 198}}</string>
+											<string>{{0, 0}, {694, 192}}</string>
+											<string>{{0, 192}, {694, 189}}</string>
 										</array>
 									</dict>
 								</dict>
@@ -862,14 +863,14 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>5618DB460AFC20A000F27831</string>
+				<string>56FF48990AFF4C51003AF282</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>5618DB470AFC20A000F27831</string>
-				<string>5618DB480AFC20A000F27831</string>
-				<string>5618DB490AFC20A000F27831</string>
-				<string>5618DB4A0AFC20A000F27831</string>
-				<string>5618DB4B0AFC20A000F27831</string>
-				<string>5618DB4C0AFC20A000F27831</string>
+				<string>56FF489A0AFF4C51003AF282</string>
+				<string>56FF489B0AFF4C51003AF282</string>
+				<string>56FF489C0AFF4C51003AF282</string>
+				<string>56FF489D0AFF4C51003AF282</string>
+				<string>56FF489E0AFF4C51003AF282</string>
+				<string>56FF489F0AFF4C51003AF282</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debug</string>

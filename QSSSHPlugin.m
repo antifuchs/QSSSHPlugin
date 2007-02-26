@@ -33,9 +33,10 @@
 - (NSArray *) objectsFromPath:(NSString *)path withSettings:(NSDictionary *)settings{
     NSMutableArray *objects=[NSMutableArray arrayWithCapacity:1];
     QSObject *newObject;
+	int line=0;
 	
 
-	NSError *error;
+	NSError *error=nil;
 	NSString *contents = [NSString stringWithContentsOfFile:path encoding:NSISOLatin1StringEncoding error:&error];
 	if (error != nil) {
 		NSLog (@"Couldn't read contents of %@: %@\n", path, error);
@@ -44,7 +45,7 @@
 	NSScanner *lineScanner = [NSScanner scannerWithString:contents];
 	NSCharacterSet *newline = [NSCharacterSet characterSetWithCharactersInString:@"\n"];
 	NSCharacterSet *hostnameSeparator = [NSCharacterSet characterSetWithCharactersInString:@"\t ,"];
-	NSString *host, *ignored;
+	NSString *host=nil, *ignored=nil;
 	
 	while(![lineScanner isAtEnd]) {
 		if ([lineScanner scanUpToCharactersFromSet:hostnameSeparator intoString:&host] &&
@@ -52,9 +53,11 @@
 			QSObject *newHostObject = [QSSSHPlugin newHostEntry:host];
 			if (![objects containsObject:newHostObject])
 				[objects addObject:newHostObject];
+			line++;
 		} else {
-			NSLog(@"huh? known_hosts entry didn't match? host: %@; ignoring line...", host);
+			NSLog(@"huh? known_hosts entry didn't match? line: %d; ignoring line...", line);
 			[lineScanner scanUpToCharactersFromSet:newline intoString:&ignored];
+			line++;
 		}
 	}
     
@@ -73,7 +76,7 @@
     NSMutableArray *objects=[NSMutableArray arrayWithCapacity:0];
     QSObject *newObject;
 	
-	NSError *error;
+	NSError *error=nil;
 	NSString *contents = [NSString stringWithContentsOfFile:path encoding:NSISOLatin1StringEncoding error:&error];
 	if (error != nil) {
 		NSLog (@"Couldn't read contents of %@: %@\n", path, error);
@@ -83,7 +86,7 @@
 	NSCharacterSet *newline = [NSCharacterSet characterSetWithCharactersInString:@"\n"];
 	NSCharacterSet *hostnameSeparator = [NSCharacterSet characterSetWithCharactersInString:@"\t ,"];
 	NSCharacterSet *wildcards = [NSCharacterSet characterSetWithCharactersInString:@"*?"];
-	NSString *firstWord, *host, *ignored;
+	NSString *firstWord=nil, *host=nil, *ignored=nil;
 	
 	while(![lineScanner isAtEnd]) {
 		if ([lineScanner scanUpToCharactersFromSet:[NSCharacterSet whitespaceCharacterSet] intoString:&firstWord] &&
@@ -130,9 +133,10 @@
 	NSString *hostStr = [dObject objectForType:QSSSHHostIDType];
 	if (hostStr == NULL)
 		hostStr = [dObject objectForType:NSStringPboardType];
-    
-    [[NSWorkspace sharedWorkspace]
-		openURL:[NSURL URLWithString:[NSString stringWithFormat:@"ssh://%@/", hostStr]]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"ssh://%@/", hostStr]];
+	
+    if (NO == [[NSWorkspace sharedWorkspace] openURL:url])
+		NSLog(@"opening URL %@ failed!", url);
     return nil;
 }
 
@@ -140,10 +144,11 @@
 	NSString *hostStr = [dObject objectForType:QSSSHHostIDType];
 	if (hostStr == NULL)
 		hostStr = [dObject objectForType:NSStringPboardType];
-		
-    [[NSWorkspace sharedWorkspace] 
-		openURL:[NSURL URLWithString:[NSString stringWithFormat:@"ssh://%@@%@/", iObject, hostStr]]];
-    return nil;
+	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"ssh://%@@%@/", iObject, hostStr]];
+	
+    if (NO == [[NSWorkspace sharedWorkspace] openURL:url])
+		NSLog(@"opening URL %@ failed!", url);
+	return nil;
 }
 
 - (NSImage *) iconForEntry:(NSDictionary *)dict{

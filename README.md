@@ -8,3 +8,5 @@ It probably requires the QS frameworks to be installed (and I don't
 know how to do that anymore, sorry).
 
 Good luck.
+
+You may be more interested in this thing that I've made in the meantime: [ssh_bookmarker](https://github.com/antifuchs/ssh_bookmarker) - automatically generate `ssh://` bookmarks from your SSH config&hosts files.
